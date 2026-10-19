@@ -27,6 +27,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_VENDOR_PROPERTIES += \
     bluetooth.device.class_of_device=34,4,36
 
+# Display: compose the 1080p TV UI into a 1080p client target and let the
+# display hardware scale it, so 4K video buffers fit in CMA.
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.surface_flinger.max_graphics_width=1920 \
+    ro.surface_flinger.max_graphics_height=1080
+
 # Boot animation
 PRODUCT_COPY_FILES += \
     device/google/atv/products/bootanimations/bootanimation.zip:$(TARGET_COPY_OUT_SYSTEM)/media/bootanimation.zip
